@@ -46,7 +46,7 @@ const login = (data) => async (dispatch) => {
   try {
       alert('ju')
     dispatch(setLoading({ isLoading: true, isSuccess: false }));
-    const res = await axios.post(`${baseUrl}/login?password=${data.password}&email=${data.email}`);
+    const res = await axios.post(`${baseUrl}/login?${data}`);
     if(res.status == 200) {
         setAccessToken(res.token)
     }

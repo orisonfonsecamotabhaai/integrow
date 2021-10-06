@@ -84,8 +84,8 @@ const Login = () => {
             fontColor="black"
             marginTop={30}
           />
-          <InputField name='email' value={state.email} label="Email" onChange={onChange} />
-          <InputField name='password' value={state.password} label="Password" onChange={onChange} />
+          <InputField type='email' name='email' value={state.email} label="Email" onChange={onChange} />
+          <InputField type='password' name='password' value={state.password} label="Password" onChange={onChange} />
           <RowWrap style={{ marginTop: 10 }}>
             <Switch style={{ backgroundColor: "#72c029" }} defaultChecked />
             <Title
