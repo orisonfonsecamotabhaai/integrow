@@ -1,0 +1,11 @@
+.image{
+    position: relative;
+}
+
+.card{
+    position: absolute;
+    width: 60%;
+    top: -200px;
+    left: 20%;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
