@@ -2,7 +2,7 @@ import React from 'react';
 import styled from "styled-components";
 
 const FormWrapper = styled.div`
-  height: 70vh;
+  height: 75vh;
   width: 40vh;
   border: 3px solid black;
   border-radius: 40px;

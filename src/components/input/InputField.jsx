@@ -9,7 +9,7 @@ const Div = styled.div`
     margin-top: 40px;
 `;
 
-const InputField = ({label}) => (
+const InputField = ({label, name, onChange, value}) => (
   <Div>
     <div class="form">
       <input
@@ -18,6 +18,9 @@ const InputField = ({label}) => (
         class="form__input"
         autocomplete="off"
         placeholder=" "
+        value={value}
+        name={name}
+        onChange={onChange}
       />
       <label for="email" class="form__label">
         {label}

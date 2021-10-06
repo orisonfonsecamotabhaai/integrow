@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "../../assets/images/index";
 import styled from "styled-components";
 import FormContainer from "../../components/container/FormContainer";
@@ -11,6 +11,9 @@ import {
 import InputField from "../../components/input/InputField";
 import { Switch } from "antd";
 import ButtonCircular from "../../components/button/ButtonCircular";
+import { useDispatch } from "react-redux";
+import loadingAction from "../../redux/action/loadingAction";
+import authAction from "../../redux/action/authAction";
 
 const Div = styled.div`
   height: 90vh;
@@ -33,6 +36,23 @@ const RowWrap = styled.div`
 `;
 
 const Login = () => {
+
+  const dispatch = useDispatch();
+
+  const [state, setstate] = useState({email: '', password: ''});
+
+  const onChange = (e) => {
+    setstate({[e.target.name]: e.target.value})
+  }
+
+  const onSubmit = () => {
+    const data = {
+      email: state.email,
+      password: state.password,
+    }
+    dispatch(authAction.login(data))
+  }
+
   return (
     <>
       <Div>
@@ -64,8 +84,8 @@ const Login = () => {
             fontColor="black"
             marginTop={30}
           />
-          <InputField label="Email" />
-          <InputField label="Password" />
+          <InputField name='email' value={state.email} label="Email" onChange={onChange} />
+          <InputField name='password' value={state.password} label="Password" onChange={onChange} />
           <RowWrap style={{ marginTop: 10 }}>
             <Switch style={{ backgroundColor: "#72c029" }} defaultChecked />
             <Title
@@ -92,6 +112,7 @@ const Login = () => {
             title="Login"
             fontSize={20}
             marginTop={10}
+            onClick={onSubmit}
           />
           <RowWrap>
           <Title
@@ -118,6 +139,7 @@ const Login = () => {
             title="Login as Admin"
             fontSize={17}
             marginTop={10}
+            
           />
         </FormContainer>
       </Div>
